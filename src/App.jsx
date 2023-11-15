@@ -18,9 +18,7 @@ function App() {
   }, []);
 
   function handleSelect(event) {
-    // Obtén el índice de la provincia seleccionada
     const selectedProvinceIndex = event.target.selectedIndex;
-    // Almacena el índice en el estado coords
     setCoords(selectedProvinceIndex);
   }
   return (
