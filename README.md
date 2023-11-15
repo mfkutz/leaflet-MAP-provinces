@@ -1,7 +1,10 @@
 # React + Vite
 
 ![capture](./public/capture.png)
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a challenge make of my, you can select any province of Argentina, and this app return the coordinates and the ubication on the map
+
+#DEPENDENCIES
+"react-leaflet": "^4.2.1"
 
 Currently, two official plugins are available:
 
