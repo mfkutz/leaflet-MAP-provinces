@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet"
 import "leaflet/dist/leaflet.css";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,6 +19,14 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
+
+  const customIcon = new L.Icon({
+    iconUrl: "/iconmonstr-flag-18.svg", // Ruta a tu archivo SVG
+    iconSize: [32, 32], // Tamaño del icono (ajusta si es necesario)
+    iconAnchor: [16, 32], // Punto de anclaje del icono
+    popupAnchor: [0, -32], // Punto de anclaje para el popup
+  });
+
   function handleSelect(event) {
     const selectedProvinceIndex = event.target.selectedIndex;
     setCoords(selectedProvinceIndex);
@@ -25,6 +35,8 @@ function App() {
     <div className="flex flex-col h-screen bg-gray-500 text-white w-full ">
       <div>
         <h1 className="text-center text-[2rem]">Provincias de Argentina</h1>
+        <div>
+        </div>
         {loading ? (
           <div>Cargando provincias</div>
         ) : (
@@ -63,6 +75,7 @@ function App() {
                 data[coords].centroide.lat,
                 data[coords].centroide.lon,
               ]}
+              icon={customIcon}
             >
               <Popup>
                 A pretty CSS3 popup. <br /> Easily customizable.
